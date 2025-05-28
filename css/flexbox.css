@@ -1,0 +1,163 @@
+/*Cabeçalho*/
+.cabecalho__container{
+    display: flex;
+    justify-content: space-between;/*Espaça cada elemento do header*/
+    align-items: center;/*Da um espaço do conteúdo do header e a parte de cima do projeto*/
+    position: fixed;/*Deixa o header fixo idependente da rolagemda página*/
+    top: 0;/*Fique no topo a 0 de distancia do topo*/
+}
+
+.cabecalho__pesquisar__item{
+    display: none;/*Tira o menu de pesquisa e vai reaparecer só lá no media*/
+}
+
+/*Menu*/
+.menu__container{
+    position: fixed;/*Deixa o menu fixo*/
+    bottom: 0%;
+    height: 74px;
+    width: 100%;
+}
+
+.menu__lista{
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu__lista li{/*Aplico as mudanças em cada propriedade do menu__lista que tem li*/
+    align-self: center;/*Mesmo que align itens só que serve pro item*/
+}
+
+.menu__lista:nth-child(2),
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display: none;/*Vai tirar os blocos de lista*/
+}
+
+.menu__itens{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/*Superior seção:*/
+.superior__secao__container{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;/*Não deixa os textos irem pra baixo da caixa*/
+    overflow: scroll;/*Cria barra de rolagem*/
+    gap: 15px;
+}
+
+/*Video*/
+
+.videos__container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.videos__item{
+    height: 303px;
+    width: 280px;
+    flex-grow: 1;/*Faz um item crescer para se adaptar a tela/1 pra crescer igualmente*/
+}
+
+.descricao-video {
+    margin-top: 1rem;
+    display: grid;
+    text-align: start;
+    column-gap: 1rem;
+    row-gap: 10px;
+    grid-template-columns: auto 1fr;
+}
+
+.descricao-video img {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.descricao-video h3 {
+    grid-area: 1 / 2 / 2 / 3;
+    font-weight: 700;
+    color: #444444;
+}
+
+.descricao-video p {
+    grid-area: 2 / 2 / 3 / 3;
+    font-size: 14px;
+    color: #444444;
+}
+
+/*Rodapé*/
+.rodape__container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;/*Quebra as colunas pra elas ficarem somente na área delas*/
+    /* flex-flow: column wrap;É a mesma coisa que a colum e wrap acima */
+}
+
+@media (min-width: 834px){
+    /*Cabecalho*/
+    .cabecalho__pesquisar__item{
+        display: block;
+    }
+
+    /*Rodape*/
+    .rodape__container{
+        justify-content: space-between;
+    }
+    
+    /*Menu*/
+    .menu__container {
+        left: 0;
+        height: auto;
+        width: 74px;
+        top: 80px;
+    }
+    
+    .menu__lista {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 15px;
+        gap: 33px;
+    }
+}
+
+@media (min-width: 1440px){
+    .menu__container{
+        width: 239px;
+        overflow: scroll;
+    }
+    .menu__lista:nth-child(2),
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+    display: flex;
+    }
+    .menu__lista{
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap: 15px;
+    }
+    .menu__itens{
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+    .menu__lista:nth-child(3){/*O numero indica o bloco da lista*/
+        flex-direction: column-reverse;
+    }
+
+    /*Definindo a ordem que os elementos aparecem*/
+    /* .jogos{
+        order: 3;
+    }
+    .filmes{
+        order: 2;
+    }
+    .premium{
+        order: 1;
+    }
+    .maispagina {
+        order: 4;
+    } */
+}
